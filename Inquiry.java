@@ -1,8 +1,11 @@
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -23,6 +26,10 @@ public class Inquiry {
   @Test
   public void testInquiryJUnit4() throws Exception {
     driver.get(baseUrl + "/inquiries/new");
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("submit")).click();
     try {
       assertEquals("can't be blank", driver.findElement(By.cssSelector("span.help-inline")).getText());
@@ -44,6 +51,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_name")).clear();
     driver.findElement(By.id("inquiry_name")).sendKeys("Domenic Sorace");
     driver.findElement(By.id("submit")).click();
@@ -62,6 +73,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_email")).clear();
     driver.findElement(By.id("inquiry_email")).sendKeys("domenic.sorace@spongecell.com");
     driver.findElement(By.id("submit")).click();
@@ -75,6 +90,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_content")).clear();
     driver.findElement(By.id("inquiry_content")).sendKeys("Test");
     driver.findElement(By.id("submit")).click();
@@ -89,13 +108,21 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_name")).clear();
     driver.findElement(By.id("inquiry_name")).sendKeys("Domenic Sorace");
-    try {
+    try {    	
       assertEquals("", driver.findElement(By.id("inquiry_content")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_content")).clear();
     driver.findElement(By.id("inquiry_content")).sendKeys("Test");
     try {
@@ -103,10 +130,14 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_email")).clear();
     driver.findElement(By.id("inquiry_email")).sendKeys("domenic.sorace#spongecell.com");
     driver.findElement(By.id("submit")).click();
-    try {
+    try { 	
       assertEquals("is invalid", driver.findElement(By.cssSelector("span.help-inline")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
@@ -116,6 +147,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_email")).clear();
     driver.findElement(By.id("inquiry_email")).sendKeys("domenic.sorace@spongecell.com");
     try {
@@ -123,6 +158,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_phone")).clear();
     driver.findElement(By.id("inquiry_phone")).sendKeys("212222555A");
     driver.findElement(By.id("submit")).click();
@@ -136,6 +175,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_phone")).clear();
     driver.findElement(By.id("inquiry_phone")).sendKeys("2122225555");
     try {
@@ -143,6 +186,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("inquiry_company")).clear();
     driver.findElement(By.id("inquiry_company")).sendKeys("Tester");
     driver.findElement(By.id("submit")).click();
@@ -151,6 +198,10 @@ public class Inquiry {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.linkText("×")).click();
   }
 

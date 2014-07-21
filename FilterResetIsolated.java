@@ -2,9 +2,12 @@
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -27,38 +30,102 @@ public class FilterResetIsolated {
     driver.get(baseUrl + "/gallery");
     driver.findElement(By.cssSelector("button.btn.dropdown-toggle")).click();
     driver.findElement(By.linkText("Display")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     assertEquals("DISPLAY", driver.findElement(By.cssSelector("div.filter-text")).getText());
     assertTrue(isElementPresent(By.cssSelector("div.filter-text")));
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[3]/div/button[2]")).click();
     driver.findElement(By.linkText("CPG")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     assertEquals("CPG", driver.findElement(By.xpath("//div[@id='filter-tags']/div[2]/div")).getText());
     assertTrue(isElementPresent(By.xpath("//div[@id='filter-tags']/div[2]/div")));
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[4]/div/button[2]")).click();
     driver.findElement(By.linkText("Video")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     assertEquals("VIDEO", driver.findElement(By.xpath("//div[@id='filter-tags']/div[3]/div")).getText());
     assertTrue(isElementPresent(By.xpath("//div[@id='filter-tags']/div[3]/div")));
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[5]/div/button[2]")).click();
     driver.findElement(By.linkText("300x250")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     assertEquals("300X250", driver.findElement(By.xpath("//div[@id='filter-tags']/div[4]/div")).getText());
     assertTrue(isElementPresent(By.xpath("//div[@id='filter-tags']/div[4]/div")));
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[6]/div/button[2]")).click();
     driver.findElement(By.linkText("United Arab Emirates")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     assertEquals("UNITED ARAB EMIRATES", driver.findElement(By.xpath("//div[@id='filter-tags']/div[5]/div")).getText());
     assertTrue(isElementPresent(By.xpath("//div[@id='filter-tags']/div[5]/div")));
     assertEquals("Sorry, we don't have any ads that match your search criteria. Clear a filter above or clear all filters to start a new search >>", driver.findElement(By.cssSelector("div.span12")).getText());
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.linkText("clear all filters to start a new search >>")).click();
     driver.findElement(By.cssSelector("button.btn.dropdown-toggle")).click();
     driver.findElement(By.linkText("Display")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[3]/div/button[2]")).click();
     driver.findElement(By.linkText("CPG")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[4]/div/button[2]")).click();
     driver.findElement(By.linkText("Video")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[5]/div/button[2]")).click();
     driver.findElement(By.linkText("300x250")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='search']/div/div/div/div[6]/div/button[2]")).click();
     driver.findElement(By.linkText("United States")).click();
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     assertEquals("UNITED STATES", driver.findElement(By.xpath("//div[@id='filter-tags']/div[5]/div")).getText());
     assertTrue(isElementPresent(By.xpath("//div[@id='filter-tags']/div[5]/div")));
+    
+    //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.xpath("//div[@id='filter-tags']/div[5]/div[2]")).click();
     assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[133]/div/div/div")));
     driver.findElement(By.xpath("//div[@id='filter-tags']/div[4]/div[2]")).click();
