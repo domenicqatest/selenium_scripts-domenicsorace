@@ -2,9 +2,12 @@
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -33,13 +36,23 @@ public class Social {
     }
     driver.findElement(By.id("square-search")).clear();
     driver.findElement(By.id("square-search")).sendKeys("Air New Zealand");
+    
+    //Pause//
+    Thread.sleep(1000);
+    
     driver.findElement(By.linkText("300 x 250")).click();
+
     assertEquals("Air New Zealand - 300x250", driver.findElement(By.cssSelector("li.active")).getText());
+
     driver.findElement(By.cssSelector("img[alt=\"Share_email\"]")).click();
+
     assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_email\"]")));
     assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_facebook\"]")));
+
     driver.findElement(By.cssSelector("img[alt=\"Share_facebook\"]")).click();
+    
     assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_twitter\"]")));
+
     driver.findElement(By.cssSelector("img[alt=\"Share_twitter\"]")).click();
     assertEquals("Check out this interactive @Spongecell ad for Air New Zealand! http://bit.ly/1h77mXE See more at spongecell.com/gallery", driver.findElement(By.id("status")).getText());
     
