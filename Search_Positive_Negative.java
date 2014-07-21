@@ -1,8 +1,11 @@
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -23,16 +26,32 @@ public class Search_Positive_Negative {
   @Test
   public void testSearchPostitiveNegative() throws Exception {
     driver.get(baseUrl + "/gallery");
+    
+  //Pause//
+    Thread.sleep(3000);
+    
     assertTrue(isElementPresent(By.id("square-search")));
+    
+  //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("square-search")).clear();
     driver.findElement(By.id("square-search")).sendKeys("Gilte");
     // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
     driver.findElement(By.linkText("clear all filters to start a new search >>")).click();
     driver.findElement(By.id("square-search")).clear();
     driver.findElement(By.id("square-search")).sendKeys("Gillette");
+    
+  //Pause//
+    Thread.sleep(3000);
+    
     assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[22]/div/div/div")));
     assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[133]/div/div/div")));
     assertTrue(isElementPresent(By.id("square-search")));
+    
+  //Pause//
+    Thread.sleep(3000);
+    
     driver.findElement(By.id("square-search")).clear();
     driver.findElement(By.id("square-search")).sendKeys("");
   }
