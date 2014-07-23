@@ -41,6 +41,9 @@ public class Social {
     Thread.sleep(1000);
     
     driver.findElement(By.linkText("300 x 250")).click();
+    
+  //Pause//
+    Thread.sleep(3000);
 
     assertEquals("Air New Zealand - 300x250", driver.findElement(By.cssSelector("li.active")).getText());
 
