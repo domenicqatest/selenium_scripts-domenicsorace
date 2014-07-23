@@ -6,3 +6,7 @@ selenium-java-2.25.0.jar
 selenium-server-standalone-2.41.0.jar
 
 Files have been uploaded.
+
+To use the Remote Control, or 'RC' files, you need to open Terminal and paste this command after all jar files are in place:
+java -jar Desktop/selenium-server-standalone-2.41.0.jar -port 4444
+
