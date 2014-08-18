@@ -209,10 +209,11 @@ public class ProductionMarketingTests {
 	    Thread.sleep(3000);
 	    
 	    driver.findElement(By.linkText("×")).click();
-	
-
+	  
       
-      //Dynamic Signal Value//
+      
+      //Dynamic//
+     
 	  
       driver.get(baseUrl + "/gallery/concept/717/creative/293730");
       assertEquals("Qatar Airways - 300x250", driver.findElement(By.cssSelector("li.active")).getText());
@@ -309,9 +310,9 @@ public class ProductionMarketingTests {
       assertTrue(isElementPresent(By.cssSelector("button.btn.dropdown-text")));
       assertEquals("King's Hawaiian - 160x600", driver.findElement(By.cssSelector("li.active")).getText());
       
-        
+  
     //Filtering Breadcrumb//
-    
+        
     driver.get(baseUrl + "/gallery");
     driver.findElement(By.cssSelector("button.btn.dropdown-toggle")).click();
     driver.findElement(By.linkText("Display")).click();
@@ -372,9 +373,7 @@ public class ProductionMarketingTests {
     Thread.sleep(8000);
     
     assertEquals("Spongecell", driver.getTitle());
-    
-          
-  //Search - Positive/Negative//
+
           
     driver.get(baseUrl + "/gallery");
     
@@ -386,59 +385,64 @@ public class ProductionMarketingTests {
     //Pause//
       Thread.sleep(3000);
       
-      driver.findElement(By.id("square-search")).clear();
-      driver.findElement(By.id("square-search")).sendKeys("Gilte");
-      // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-      driver.findElement(By.linkText("clear all filters to start a new search >>")).click();
-      driver.findElement(By.id("square-search")).clear();
-      driver.findElement(By.id("square-search")).sendKeys("Gillette");
       
-    //Pause//
-      Thread.sleep(3000);
       
-      assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[22]/div/div/div")));
-      assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[133]/div/div/div")));
-      assertTrue(isElementPresent(By.id("square-search")));
+      //Search_Positive_Negative//
       
-    //Pause//
-      Thread.sleep(3000);
+      driver.get(baseUrl + "/gallery");
       
-      driver.findElement(By.id("square-search")).clear();
-      driver.findElement(By.id("square-search")).sendKeys("");
+      //Pause//
+        Thread.sleep(3000);
+        
+        assertTrue(isElementPresent(By.id("square-search")));
+        
+      //Pause//
+        Thread.sleep(3000);
+        
+        driver.findElement(By.id("square-search")).clear();
+        driver.findElement(By.id("square-search")).sendKeys("Gilte");
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("clear all filters to start a new search >>")).click();
+        driver.findElement(By.id("square-search")).clear();
+        driver.findElement(By.id("square-search")).sendKeys("Gillette");
+        
+      //Pause//
+        Thread.sleep(3000);
+        
+        assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[22]/div/div/div")));
+        assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[133]/div/div/div")));
+        assertTrue(isElementPresent(By.id("square-search")));
+        
+      //Pause//
+        Thread.sleep(3000);
+        
+        driver.findElement(By.id("square-search")).clear();
+        driver.findElement(By.id("square-search")).sendKeys("");
+        
+      
+      ////Social - FB_Email_Twitter//
           
-          //Social - FB_Email_Twitter//
-          
-          driver.get(baseUrl + "/gallery");
-          // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-          try {
-            assertEquals("", driver.findElement(By.id("square-search")).getText());
-          } catch (Error e) {
-            verificationErrors.append(e.toString());
-          }
-          driver.findElement(By.id("square-search")).clear();
-          driver.findElement(By.id("square-search")).sendKeys("Air New Zealand");
-          
-          
-          //Pause//
-          Thread.sleep(1000); 
-         
-          driver.findElement(By.linkText("300 x 250")).click();
-          
+        driver.get(baseUrl + "/gallery/concept/626/creative/282411");
+        
         //Pause//
           Thread.sleep(3000);
-          
-          assertEquals("Air New Zealand - 300x250", driver.findElement(By.cssSelector("li.active")).getText());
+
           driver.findElement(By.cssSelector("img[alt=\"Share_email\"]")).click();
+
           assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_email\"]")));
           assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_facebook\"]")));
+
           driver.findElement(By.cssSelector("img[alt=\"Share_facebook\"]")).click();
+          
           assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_twitter\"]")));
+
           driver.findElement(By.cssSelector("img[alt=\"Share_twitter\"]")).click();
-          assertEquals("Check out this interactive @Spongecell ad for Air New Zealand! http://bit.ly/1h77mXE See more at spongecell.com/gallery", driver.findElement(By.id("status")).getText());
+          assertEquals("Check out this interactive @Spongecell ad for Air New Zealand! http://bit.ly/1nC2ra3 See more at spongecell.com/gallery", driver.findElement(By.id("status")).getText());
           
           // SIGN IN TO TWITTER AND RUN THIS LINE: driver.findElement(By.xpath("//input[@value='Tweet']")).click(); UNLESS YOU ARE SIGNED IN TO TWITTER ADDING THIS LINE WILL FAIL THIS SCRIPT HERE!!!
+          driver.get(baseUrl + "/gallery");
           
-          
+
           //Filter Reset Isolated//
           
           driver.get(baseUrl + "/gallery");
@@ -550,7 +554,7 @@ public class ProductionMarketingTests {
           assertTrue(isElementPresent(By.xpath("//div[@id='gallery-container']/div[327]/div/div/div")));
           driver.findElement(By.cssSelector("div.remove-filter")).click();
           
-          //Toggle//
+		//Toggle//
           
           driver.get(baseUrl + "/gallery");
           driver.findElement(By.id("list-view")).click();

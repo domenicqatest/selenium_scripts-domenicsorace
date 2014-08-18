@@ -422,33 +422,25 @@ public class MarketingTests {
       
       ////Social - FB_Email_Twitter//
           
-          driver.get(baseUrl + "/gallery");
-          // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-          try {
-            assertEquals("", driver.findElement(By.id("square-search")).getText());
-          } catch (Error e) {
-            verificationErrors.append(e.toString());
-          }
-          driver.findElement(By.id("square-search")).clear();
-          driver.findElement(By.id("square-search")).sendKeys("Air New Zealand");
-          
-          //Pause//
-          Thread.sleep(1000);
-          
-          driver.findElement(By.linkText("300 x 250")).click();
-          
+        driver.get(baseUrl + "/gallery/concept/626/creative/282411");
+        
         //Pause//
           Thread.sleep(3000);
-          
-          assertEquals("Air New Zealand - 300x250", driver.findElement(By.cssSelector("li.active")).getText());
+
           driver.findElement(By.cssSelector("img[alt=\"Share_email\"]")).click();
+
           assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_email\"]")));
           assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_facebook\"]")));
+
           driver.findElement(By.cssSelector("img[alt=\"Share_facebook\"]")).click();
+          
           assertTrue(isElementPresent(By.cssSelector("img[alt=\"Share_twitter\"]")));
+
           driver.findElement(By.cssSelector("img[alt=\"Share_twitter\"]")).click();
-          assertEquals("Check out this interactive @Spongecell ad for Air New Zealand! http://bit.ly/1h77mXE See more at spongecell.com/gallery", driver.findElement(By.id("status")).getText());
+          assertEquals("Check out this interactive @Spongecell ad for Air New Zealand! http://bit.ly/1nC2ra3 See more at spongecell.com/gallery", driver.findElement(By.id("status")).getText());
+          
           // SIGN IN TO TWITTER AND RUN THIS LINE: driver.findElement(By.xpath("//input[@value='Tweet']")).click(); UNLESS YOU ARE SIGNED IN TO TWITTER ADDING THIS LINE WILL FAIL THIS SCRIPT HERE!!!
+          driver.get(baseUrl + "/gallery");
           
 
           //Filter Reset Isolated//
