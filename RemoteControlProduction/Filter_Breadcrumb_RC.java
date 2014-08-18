@@ -36,7 +36,7 @@ public class Filter_Breadcrumb_RC {
 		selenium.click("link=United States");
 		assertEquals("United States", selenium.getText("//div[@id='filter-tags']/div[5]/div"));
 		selenium.selectWindow("null");
-		selenium.click("xpath=(//a[contains(text(),'300 x 250')])[82]");
+		selenium.click("xpath=(//a[contains(text(),'300 x 250')])[84]");
 		selenium.waitForPageToLoad("30000");
 		assertEquals("Clear Haircare - 300x250", selenium.getText("css=li.active"));
 		selenium.click("link=CPG");

@@ -56,6 +56,8 @@ public class FilterResetIsolatedRC {
 		assertEquals("United States", selenium.getText("//div[@id='filter-tags']/div[5]/div"));
 		assertTrue(selenium.isElementPresent("//div[@id='filter-tags']/div[5]/div"));
 		selenium.click("//div[@id='filter-tags']/div[5]/div[2]");
+		
+		
 		assertTrue(selenium.isElementPresent("//div[@id='gallery-container']/div[133]/div/div/div"));
 		selenium.click("//div[@id='filter-tags']/div[4]/div[2]");
 		assertTrue(selenium.isElementPresent("//div[@id='gallery-container']/div[133]/div/div/div"));

@@ -66,7 +66,7 @@ public class Filtering_Breadcrumb_FilterReset {
     
     assertEquals("UNITED STATES", driver.findElement(By.xpath("//div[@id='filter-tags']/div[5]/div")).getText());
     // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-    driver.findElement(By.xpath("(//a[contains(text(),'300 x 250')])[82]")).click();
+    driver.findElement(By.xpath("(//a[contains(text(),'300 x 250')])[84]")).click();
     
   //Pause//
     Thread.sleep(3000);
